@@ -12,5 +12,8 @@
 *.user
 *.tmp
 
+UserSettings/
+.plastic/
+
 .DS_Store
 Thumbs.db
