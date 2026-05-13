@@ -1,3 +1,4 @@
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,12 +15,26 @@ public class DoorInteract : MonoBehaviour
     public AudioSource source;
     public AudioClip clip;
 
-    public static bool paperRead = false;
+    public float speed = 2f;
+    private bool isMoving = false;
+    private Quaternion targetRotation;
+
+    private bool isOpen = false;
+    private Quaternion closedRotation;
+    private Quaternion openRotation;
+
+    public static bool paperRead = true;
 
     private Transform player;
+    public bool IsOpen => isOpen;
+
 
     void Start()
     {
+
+        closedRotation = transform.rotation;
+        openRotation = Quaternion.Euler(transform.eulerAngles + new Vector3(0f, 90f, 0f));
+
         GameObject baldMan = GameObject.Find("BaldMan");
 
         if (baldMan != null)
@@ -35,9 +50,11 @@ public class DoorInteract : MonoBehaviour
 
     void Update()
     {
+
         if (player == null) return;
 
         float distance = Vector3.Distance(player.position, transform.position);
+        Debug.Log("Distance: " + Vector3.Distance(player.position, transform.position));
         bool playerNearby = distance <= interactRange;
 
         // If paper is not read, always hide door prompt
@@ -61,11 +78,32 @@ public class DoorInteract : MonoBehaviour
 
     void OpenDoor()
     {
+        if (isMoving) return;
+        Debug.Log("OpenDoor called! isOpen: " + isOpen);
+
         if (clip != null && source != null)
         {
-            source.PlayOneShot(clip);
+            source.PlayOneShot(clip, 0.4f);
         }
 
-        SceneManager.LoadSceneAsync(sceneIndexToLoad);
+        isOpen = !isOpen;
+        targetRotation = isOpen ? openRotation : closedRotation;
+
+        StartCoroutine(RotateDoor());
+    }
+
+
+    System.Collections.IEnumerator RotateDoor()
+    {
+        isMoving = true;
+
+        while (Quaternion.Angle(transform.rotation, targetRotation) > 0.1f)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * speed);
+            yield return null;
+        }
+
+        transform.rotation = targetRotation;
+        isMoving = false;
     }
 }
