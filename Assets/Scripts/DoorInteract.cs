@@ -23,7 +23,7 @@ public class DoorInteract : MonoBehaviour
     private Quaternion closedRotation;
     private Quaternion openRotation;
 
-    public static bool paperRead = true;
+    public static bool paperRead = false;
 
     private Transform player;
     public bool IsOpen => isOpen;
@@ -31,7 +31,7 @@ public class DoorInteract : MonoBehaviour
 
     void Start()
     {
-
+        paperRead = false;
         closedRotation = transform.rotation;
         openRotation = Quaternion.Euler(transform.eulerAngles + new Vector3(0f, 90f, 0f));
 
@@ -93,6 +93,8 @@ public class DoorInteract : MonoBehaviour
     }
 
 
+
+
     System.Collections.IEnumerator RotateDoor()
     {
         isMoving = true;
@@ -107,3 +109,4 @@ public class DoorInteract : MonoBehaviour
         isMoving = false;
     }
 }
+
