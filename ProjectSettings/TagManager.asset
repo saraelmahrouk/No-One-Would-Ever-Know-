@@ -5,11 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - canPickUp
+  - Mirror
+  - Camera
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Entity
   - Water
   - UI
   - 
