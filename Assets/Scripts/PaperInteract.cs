@@ -80,7 +80,6 @@ public class PaperInteract : MonoBehaviour
         if (promptText != null)
             promptText.SetActive(false);
 
-        // Change objective message when E is pressed
         if (objectiveText != null)
             objectiveText.text = newObjectiveMessage;
 
@@ -107,6 +106,15 @@ public class PaperInteract : MonoBehaviour
         {
             source.Stop();
             source.clip = null;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            GameManager.instance.CollectPaper();
+            Destroy(gameObject);
         }
     }
 }
