@@ -6,6 +6,7 @@ public class DoorInteract : MonoBehaviour
 {
     [Header("Settings")]
     public float interactRange = 3f;
+    public bool readPaper = true;
     public int sceneIndexToLoad = 0;
 
     [Header("UI References")]
@@ -23,15 +24,21 @@ public class DoorInteract : MonoBehaviour
     private Quaternion closedRotation;
     private Quaternion openRotation;
 
-    public static bool paperRead = false;
+    public static bool paperRead;
 
     private Transform player;
     public bool IsOpen => isOpen;
 
+    private void Awake()
+    {
+        Debug.Log(gameObject.name + " readPaper (Inspector): " + readPaper);
 
+        paperRead = readPaper;
+
+        Debug.Log(gameObject.name + " paperRead (after set): " + paperRead);
+    }
     void Start()
     {
-        paperRead = false;
         closedRotation = transform.rotation;
         openRotation = Quaternion.Euler(transform.eulerAngles + new Vector3(0f, 90f, 0f));
 
@@ -50,11 +57,11 @@ public class DoorInteract : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("paperRead: " + paperRead);
 
         if (player == null) return;
 
         float distance = Vector3.Distance(player.position, transform.position);
-        Debug.Log("Distance: " + Vector3.Distance(player.position, transform.position));
         bool playerNearby = distance <= interactRange;
 
         // If paper is not read, always hide door prompt

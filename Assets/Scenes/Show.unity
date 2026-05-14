@@ -320,6 +320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRange: 3
+  readPaper: 1
   sceneIndexToLoad: 0
   promptText: {fileID: 0}
   source: {fileID: 525717800}
@@ -494,6 +495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRange: 3
+  readPaper: 1
   sceneIndexToLoad: 0
   promptText: {fileID: 0}
   source: {fileID: 525717800}
@@ -613,6 +615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRange: 3
+  readPaper: 1
   sceneIndexToLoad: 0
   promptText: {fileID: 0}
   source: {fileID: 525717800}
@@ -1557,6 +1560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRange: 3
+  readPaper: 1
   sceneIndexToLoad: 0
   promptText: {fileID: 0}
   source: {fileID: 525717800}
@@ -2244,6 +2248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRange: 3
+  readPaper: 1
   sceneIndexToLoad: 0
   promptText: {fileID: 0}
   source: {fileID: 525717800}
@@ -2413,6 +2418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRange: 3
+  readPaper: 1
   sceneIndexToLoad: 0
   promptText: {fileID: 0}
   source: {fileID: 525717800}
@@ -2907,6 +2913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRange: 3
+  readPaper: 1
   sceneIndexToLoad: 0
   promptText: {fileID: 0}
   source: {fileID: 525717800}
@@ -3081,6 +3088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRange: 3
+  readPaper: 1
   sceneIndexToLoad: 0
   promptText: {fileID: 0}
   source: {fileID: 525717800}
@@ -3200,6 +3208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRange: 3
+  readPaper: 1
   sceneIndexToLoad: 0
   promptText: {fileID: 0}
   source: {fileID: 525717800}
@@ -3928,6 +3937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRange: 3
+  readPaper: 1
   sceneIndexToLoad: 0
   promptText: {fileID: 0}
   source: {fileID: 525717800}
@@ -4047,6 +4057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRange: 3
+  readPaper: 1
   sceneIndexToLoad: 0
   promptText: {fileID: 0}
   source: {fileID: 525717800}
@@ -4231,6 +4242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRange: 3
+  readPaper: 1
   sceneIndexToLoad: 0
   promptText: {fileID: 0}
   source: {fileID: 525717800}
@@ -4660,6 +4672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRange: 3
+  readPaper: 1
   sceneIndexToLoad: 0
   promptText: {fileID: 0}
   source: {fileID: 525717800}
@@ -4977,6 +4990,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRange: 3
+  readPaper: 1
   sceneIndexToLoad: 0
   promptText: {fileID: 0}
   source: {fileID: 525717800}
@@ -5340,6 +5354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRange: 3
+  readPaper: 1
   sceneIndexToLoad: 0
   promptText: {fileID: 0}
   source: {fileID: 525717800}
@@ -5594,6 +5609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRange: 3
+  readPaper: 1
   sceneIndexToLoad: 0
   promptText: {fileID: 0}
   source: {fileID: 525717800}
@@ -6356,6 +6372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRange: 3
+  readPaper: 1
   sceneIndexToLoad: 0
   promptText: {fileID: 0}
   source: {fileID: 0}
@@ -6374,6 +6391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRange: 3
+  readPaper: 1
   sceneIndexToLoad: 0
   promptText: {fileID: 0}
   source: {fileID: 525717800}
@@ -6788,6 +6806,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRange: 3
+  readPaper: 1
   sceneIndexToLoad: 0
   promptText: {fileID: 0}
   source: {fileID: 525717800}
@@ -7102,6 +7121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRange: 3
+  readPaper: 1
   sceneIndexToLoad: 0
   promptText: {fileID: 0}
   source: {fileID: 0}
@@ -7120,6 +7140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRange: 3
+  readPaper: 1
   sceneIndexToLoad: 0
   promptText: {fileID: 0}
   source: {fileID: 525717800}
