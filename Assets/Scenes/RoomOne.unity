@@ -239,6 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRange: 70
+  readPaper: 1
   sceneIndexToLoad: 0
   promptText: {fileID: 1297422932}
   source: {fileID: 0}
@@ -875,6 +876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRange: 3
+  readPaper: 1
   sceneIndexToLoad: 0
   promptText: {fileID: 0}
   source: {fileID: 0}
@@ -1267,6 +1269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRange: 300
+  readPaper: 0
   sceneIndexToLoad: 0
   promptText: {fileID: 58036796}
   source: {fileID: 1002683390}
