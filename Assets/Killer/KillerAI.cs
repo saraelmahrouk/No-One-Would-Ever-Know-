@@ -41,6 +41,11 @@ public class EnemyChaser : MonoBehaviour
     float roamTimer = 0f;
     bool  waitingAtSpot = false;
 
+    private bool triggered = false;
+
+
+
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -60,6 +65,16 @@ public class EnemyChaser : MonoBehaviour
 
         if (CanSeePlayer())
         {
+            if (!triggered)
+            {
+                GameManagerRoom2.instance.TriggerEntitySeen();
+                triggered = true;
+            }
+            else if (currentState == State.Roaming)
+            {
+                GameManagerRoom2.instance.PlaySound();
+            }
+
             currentState = State.Chasing;
             agent.speed = chaseSpeed;
             agent.isStopped = false;

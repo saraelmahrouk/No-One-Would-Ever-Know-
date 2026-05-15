@@ -141,4 +141,9 @@ public class GameManagerRoom2 : MonoBehaviour
 
         Debug.Log("SET TEXT: " + debugText);
     }
+
+    public void PlaySound()
+    {
+        audioSource.PlayOneShot(whoIsThatClip);
+    }
 }
