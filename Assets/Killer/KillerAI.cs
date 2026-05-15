@@ -4,6 +4,14 @@ using UnityEngine.SceneManagement;
 
 public class EnemyChaser : MonoBehaviour
 {
+
+    [Header("Memory")]
+    public float memoryDuration = 5f; // seconds enemy remembers player
+
+    float memoryTimer = 0f;
+    bool hasSeenPlayer = false;
+    Vector3 lastSeenPosition;
+
     // ── Inspector fields ──────────────────────
     public Transform player;
     public Animator  animator;
@@ -43,6 +51,8 @@ public class EnemyChaser : MonoBehaviour
 
     private bool triggered = false;
 
+    bool wasChasingLastFrame = false;
+
 
 
 
@@ -63,30 +73,79 @@ public class EnemyChaser : MonoBehaviour
     {
         if (caught) return;
 
-        if (CanSeePlayer())
+        bool canSee = CanSeePlayer();
+
+        // ── PLAYER SEEN ───────────────────────────
+        if (canSee)
         {
-            if (!triggered)
+            // First time spotting player
+            // Just spotted player THIS frame
+            if (!wasChasingLastFrame)
             {
-                GameManagerRoom2.instance.TriggerEntitySeen();
-                triggered = true;
-            }
-            else if (currentState == State.Roaming)
-            {
-                GameManagerRoom2.instance.PlaySound();
+                if (!triggered)
+                {
+                    GameManagerRoom2.instance.TriggerEntitySeen();
+                    triggered = true;
+                }
+                else
+                {
+                    GameManagerRoom2.instance.PlaySound();
+                }
             }
 
+            wasChasingLastFrame = true;
+
+            hasSeenPlayer = true;
+            memoryTimer = memoryDuration;
+
+            lastSeenPosition = player.position;
+
             currentState = State.Chasing;
+
             agent.speed = chaseSpeed;
             agent.isStopped = false;
-            agent.SetDestination(player.position);
+            agent.SetDestination(lastSeenPosition);
+
             PlayAnim(walkAnim);
+            return;
         }
-        else
+
+        if (hasSeenPlayer)
         {
-            currentState = State.Roaming;
-            agent.speed = roamSpeed;
-            HandleRoaming();
+            memoryTimer -= Time.deltaTime;
+
+            currentState = State.Chasing;
+
+            agent.speed = chaseSpeed;
+            agent.isStopped = false;
+            agent.SetDestination(lastSeenPosition);
+
+            PlayAnim(walkAnim);
+
+            // Forgot player
+            if (memoryTimer <= 0f)
+            {
+                wasChasingLastFrame = false;
+
+                hasSeenPlayer = false;
+
+                currentState = State.Roaming;
+
+                agent.speed = roamSpeed;
+
+                PickNewRoamPoint();
+            }
+
+            return;
         }
+
+        wasChasingLastFrame = false;
+
+        currentState = State.Roaming;
+
+        agent.speed = roamSpeed;
+
+        HandleRoaming();
     }
 
     void HandleRoaming()
