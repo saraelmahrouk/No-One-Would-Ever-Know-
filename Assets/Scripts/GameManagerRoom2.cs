@@ -15,6 +15,9 @@ public class GameManagerRoom2 : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip whoIsThatClip;
 
+    public int papersRead = 0;
+    public int totalPapers = 3;
+
     private bool captionPlayed = false;
 
     private void Awake()
@@ -106,5 +109,36 @@ public class GameManagerRoom2 : MonoBehaviour
         }
 
         captionGroup.alpha = 0f;
+    }
+
+
+    public void CollectPaper()
+    {
+        papersRead++;
+
+        objectiveText.gameObject.SetActive(true);
+        objectiveGroup.alpha = 1f;
+
+        UpdateObjectiveUI();
+    }
+
+    void UpdateObjectiveUI()
+    {
+        string debugText;
+
+        if (papersRead >= totalPapers)
+        {
+            debugText = "Objective:\r\nFind a way out.";
+        }
+        else
+        {
+            debugText =
+                "Objective:\r\nFind the diary papers.\r\n" +
+                "Papers read: " + papersRead + "/" + totalPapers;
+        }
+
+        objectiveText.text = debugText;
+
+        Debug.Log("SET TEXT: " + debugText);
     }
 }

@@ -41,4 +41,8 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         // transition to Room 3 will be added later
     }
+    public void CollectPaper()
+{
+    CollectDiary();
+}
 }

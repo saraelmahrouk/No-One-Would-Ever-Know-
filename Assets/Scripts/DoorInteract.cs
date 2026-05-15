@@ -31,11 +31,9 @@ public class DoorInteract : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log(gameObject.name + " readPaper (Inspector): " + readPaper);
 
         paperRead = readPaper;
 
-        Debug.Log(gameObject.name + " paperRead (after set): " + paperRead);
     }
     void Start()
     {
@@ -116,4 +114,3 @@ public class DoorInteract : MonoBehaviour
         isMoving = false;
     }
 }
-
